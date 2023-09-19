@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     index: true,
   },
   password: String,
-  picture: {
+  signature: {
     type: String,
   },
   createdAt: { type: Date, default: Date.now },
