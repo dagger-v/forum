@@ -1,0 +1,41 @@
+<div class="nav">
+  <div class="title">
+    <a href="/">
+      <h1>The Depths</h1>
+    </a>
+  </div>
+  <% if (!isAuthenticated) { %>
+  <div>
+    <a href="/auth/login">
+      <button class="nav_btn-login">Log In</button>
+    </a>
+    <a href="/auth/register">
+      <button class="nav_btn-signup">Sign Up</button>
+    </a>
+  </div>
+  <% } else { %>
+  <li class="nav-item dropdown">
+    <a
+      class="nav-link dropdown-toggle"
+      href="#"
+      role="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <%= user.username || user %>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a class="dropdown-item" href="/users/profile">Profile</a>
+      </li>
+      <li>
+        <a class="dropdown-item" href="/users/settings">Settings</a>
+      </li>
+      <li><hr class="dropdown-divider" /></li>
+      <li>
+        <a class="dropdown-item logout-c" href="/auth/logout">Logout</a>
+      </li>
+    </ul>
+  </li>
+  <% } %>
+</div>

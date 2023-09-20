@@ -19,19 +19,11 @@
     />
   </head>
   <body>
-    <div class="nav">
-      <div class="title">
-        <h1><%= title %></h1>
-      </div>
-      <div>
-        <button class="nav_btn-login">Log In</button>
-        <button class="nav_btn-signup">
-          <a href="/auth/register">Sign Up</a>
-        </button>
-      </div>
-    </div>
+    <%- include("navbar"); -%>
     <div>
-      <button class="topic">New Topic</button>
+      <a href="/board/post">
+        <button class="topic">New Topic</button>
+      </a>
     </div>
     <table>
       <thead>

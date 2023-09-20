@@ -1,14 +1,19 @@
 var createError = require("http-errors");
 var express = require("express");
 const session = require("express-session");
-const passport = require("passport");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+const mongoose = require("mongoose");
+const passport = require("passport");
+
+require("dotenv").config();
+
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var authRouter = require("./routes/auth");
+var boardRouter = require("./routes/board");
 
 var app = express();
 
@@ -44,9 +49,19 @@ app.use(function (req, res, next) {
   next();
 });
 
+// connect to DB
+mongoose.set("strictQuery", false);
+const mongoDB = process.env.DB_CONNECT;
+
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(mongoDB);
+}
+
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/auth", authRouter);
+app.use("/board", boardRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
