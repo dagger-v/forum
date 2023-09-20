@@ -7,6 +7,7 @@ const topicSchema = new mongoose.Schema({
     ref: "User", // Reference to the user who made the Topic update
     required: true,
   },
+  title: { type: String, required: true },
   content: {
     type: String,
     required: true,

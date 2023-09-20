@@ -9,7 +9,8 @@ const he = require("he");
 
 /* GET users listing. */
 router.get("/post", function (req, res, next) {
-  res.render("post", { title: "The Depths" });
+  const user = req.user;
+  res.render("topic", { title: "The Depths", user });
 });
 
 router.post("/post", [
@@ -31,6 +32,7 @@ router.post("/post", [
 
     // Create an article object with escaped and trimmed data.
     const topic = new Topic({
+      title: req.body.title,
       content: decodedText,
       author: req.body.author,
     });
@@ -41,11 +43,10 @@ router.post("/post", [
         if (err) {
           return next(err);
         }
-        res.render("settings", {
+        res.render("post", {
           author: author.username,
-          topic: topic,
+          title: title,
           content: content,
-          topic,
           errors: errors.array(),
         });
       });
@@ -53,12 +54,15 @@ router.post("/post", [
     }
 
     // Data from form is valid. Save statue update.
-    topic.save((err) => {
-      if (err) {
-        return next(err);
-      }
-      res.redirect("/");
-    });
+    topic
+      .save()
+      .then(function (topic) {
+        console.log(topic);
+        res.redirect("/");
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
   },
 ]);
 

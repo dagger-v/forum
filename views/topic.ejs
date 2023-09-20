@@ -20,7 +20,44 @@
   </head>
   <body>
     <%- include("navbar"); -%>
-    <h1>Topic</h1>
+    <div class="about">
+      <form action="" method="POST">
+        <div class="form-group">
+          <label for="title"></label>
+          <input
+            class="form-control"
+            id="title"
+            name="title"
+            type="text"
+            placeholder="Topic Title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="content"></label>
+          <textarea
+            class="form-control"
+            id="content"
+            name="content"
+            rows="10"
+            cols="65"
+            placeholder="Write Your Message"
+          ></textarea>
+        </div>
+        <div>
+          <label for="author"></label>
+          <input
+            id="author"
+            type="text"
+            name="author"
+            value="<%= user.username %>"
+            hidden
+          />
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

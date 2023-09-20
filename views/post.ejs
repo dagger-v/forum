@@ -23,11 +23,11 @@
     <div class="about">
       <form action="" method="POST">
         <div class="form-group">
-          <label for="topic"></label>
+          <label for="title"></label>
           <input
             class="form-control"
-            id="topic"
-            name="topic"
+            id="title"
+            name="title"
             type="text"
             placeholder="Topic Title"
           />
@@ -49,7 +49,7 @@
             id="author"
             type="text"
             name="author"
-            value="<%= user %>"
+            value="<%= user.username %>"
             hidden
           />
         </div>
