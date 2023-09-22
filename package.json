@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "scss": "sass --watch src/scss/main.scss public/stylesheets/style.css",
+    "dev": "concurrently --kill-others \"npm run start\" \"npm run scss\""
   },
   "dependencies": {
     "async": "^3.2.4",
+    "concurrently": "^8.2.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.3.1",
@@ -20,6 +23,7 @@
     "mongoose-unique-validator": "^4.0.0",
     "morgan": "~1.9.1",
     "passport": "^0.6.0",
-    "passport-local-mongoose": "^8.0.0"
+    "passport-local-mongoose": "^8.0.0",
+    "sass": "^1.68.0"
   }
 }

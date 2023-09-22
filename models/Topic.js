@@ -12,6 +12,8 @@ const topicSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  posts: { type: String, ref: "Posts" },
+  postCount: { type: Number, default: 1, required: true },
   createdAt: {
     type: Date,
     default: Date.now,

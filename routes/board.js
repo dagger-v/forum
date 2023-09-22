@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
+const { ObjectId } = require("mongodb");
+
 const Topic = require("../models/Topic");
 
 const { body, validationResult } = require("express-validator");
@@ -10,7 +12,7 @@ const he = require("he");
 /* GET users listing. */
 router.get("/post", function (req, res, next) {
   const user = req.user;
-  res.render("topic", { title: "The Depths", user });
+  res.render("post", { title: "The Depths", user });
 });
 
 router.post("/post", [
@@ -65,5 +67,17 @@ router.post("/post", [
       });
   },
 ]);
+
+router.get("/:topicId", async function (req, res, next) {
+  const { topicId } = req.params;
+  console.log(topicId);
+
+  const [list_posts] = await Promise.all([
+    Topic.find({ _id: new ObjectId(topicId) }).exec(),
+  ]);
+  console.log(list_posts);
+
+  res.render("topic", { title: "The Depths", topicId, list_posts });
+});
 
 module.exports = router;
