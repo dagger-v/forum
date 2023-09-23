@@ -20,11 +20,17 @@
   </head>
   <body>
     <%- include("navbar"); -%>
-    <div class="topic">
+    <div class="post">
       <% list_posts.forEach(topic => { %>
-      <p><%= topic.title %></p>
-      <p><%= topic.author %></p>
-      <p><%= topic.content %></p>
+      <h1><%= topic.title %></h1>
+      <div class="a1">
+        <div class="b1">
+          <p><%= topic.author %></p>
+        </div>
+        <div class="c1">
+          <span><%= topic.content %></span>
+        </div>
+      </div>
       <% }); %>
     </div>
     <script

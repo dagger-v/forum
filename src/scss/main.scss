@@ -63,6 +63,8 @@ a {
 }
 
 .nav {
+  max-width: 1220px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,4 +99,33 @@ a {
   max-width: 1220px;
   margin: 0 auto;
   margin-top: 4em;
+}
+
+.post {
+  max-width: 1220px;
+  margin: 0 auto;
+  margin-top: 4em;
+  .a1 {
+    display: flex;
+    .b1 {
+      text-align: center;
+      background-color: #27272c;
+      border: 1px solid #27272f;
+      padding: 5px 2px;
+      width: 150px;
+      p {
+        color: #fff;
+        margin: 0;
+      }
+    }
+    .c1 {
+      border: 1px solid #c0c0c0;
+      flex-grow: 1;
+      flex-shrink: 0;
+      padding: 5px 2px;
+      span {
+        white-space: pre-wrap;
+      }
+    }
+  }
 }
