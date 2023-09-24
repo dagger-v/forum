@@ -70,6 +70,11 @@ router.post("/post", [
 
 router.get("/:topicId", async function (req, res, next) {
   const { topicId } = req.params;
+  const month = {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  };
   console.log(topicId);
 
   const [list_posts] = await Promise.all([
@@ -77,7 +82,7 @@ router.get("/:topicId", async function (req, res, next) {
   ]);
   console.log(list_posts);
 
-  res.render("topic", { title: "The Depths", topicId, list_posts });
+  res.render("topic", { title: "The Depths", topicId, list_posts, month });
 });
 
 module.exports = router;

@@ -22,13 +22,26 @@
     <%- include("navbar"); -%>
     <div class="post">
       <% list_posts.forEach(topic => { %>
-      <h1><%= topic.title %></h1>
+      <div class="post-t">
+        <h2><%= topic.title %></h2>
+      </div>
+      <div class="post-a">
+        <span>by: <%=topic.author %></span>
+        <span>| <%=topic.createdAt.toLocaleDateString("en-US", month) %> </span>
+      </div>
       <div class="a1">
         <div class="b1">
+          <img src="/images/dagger.png" alt="icon" />
           <p><%= topic.author %></p>
+          <span><p class="b1-g">Jade Emperor</p></span>
         </div>
         <div class="c1">
-          <span><%= topic.content %></span>
+          <div class="c1-c">
+            <span><%=topic.content %></span>
+          </div>
+          <div class="c1-s">
+            <span class="c1-sig">Do I have to die to hear you miss me</span>
+          </div>
         </div>
       </div>
       <% }); %>

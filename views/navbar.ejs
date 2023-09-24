@@ -5,7 +5,7 @@
     </a>
   </div>
   <% if (!isAuthenticated) { %>
-  <div>
+  <div class="title">
     <a href="/auth/login">
       <button class="nav_btn-login">Log In</button>
     </a>
@@ -14,28 +14,30 @@
     </a>
   </div>
   <% } else { %>
-  <li class="nav-item dropdown">
-    <a
-      class="nav-link dropdown-toggle name"
-      href="#"
-      role="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      <%= user.username || user %>
-    </a>
-    <ul class="dropdown-menu">
-      <li>
-        <a class="dropdown-item" href="/users/profile">Profile</a>
-      </li>
-      <li>
-        <a class="dropdown-item" href="/users/settings">Settings</a>
-      </li>
-      <li><hr class="dropdown-divider" /></li>
-      <li>
-        <a class="dropdown-item logout-c" href="/auth/logout">Logout</a>
-      </li>
-    </ul>
-  </li>
+  <div class="title">
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle name"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <%= user.username || user %>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-item" href="/users/profile">Profile</a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="/users/settings">Settings</a>
+        </li>
+        <li><hr class="dropdown-divider" /></li>
+        <li>
+          <a class="dropdown-item logout-c" href="/auth/logout">Logout</a>
+        </li>
+      </ul>
+    </li>
+  </div>
   <% } %>
 </div>
