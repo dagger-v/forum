@@ -4,8 +4,11 @@ var router = express.Router();
 const { ObjectId } = require("mongodb");
 
 const Topic = require("../models/Topic");
+const Post = require("../models/Posts");
 
 const { body, validationResult } = require("express-validator");
+
+const async = require("async");
 
 const he = require("he");
 
@@ -59,7 +62,6 @@ router.post("/post", [
     topic
       .save()
       .then(function (topic) {
-        console.log(topic);
         res.redirect("/");
       })
       .catch(function (err) {
@@ -75,14 +77,58 @@ router.get("/:topicId", async function (req, res, next) {
     day: "numeric",
     year: "numeric",
   };
-  console.log(topicId);
 
   const [list_posts] = await Promise.all([
     Topic.find({ _id: new ObjectId(topicId) }).exec(),
   ]);
-  console.log(list_posts);
 
-  res.render("topic", { title: "The Depths", topicId, list_posts, month });
+  const topic = await Topic.findById(req.params.id).populate({
+    path: "posts",
+    options: { sort: { createdAt: 1 } }, // Sort posts by createdAt in ascending order
+  });
+
+  res.render("topic", {
+    title: "The Depths",
+    topicId,
+    list_posts,
+    topic,
+    month,
+  });
+});
+
+router.post("/:topicId", async function (req, res, next) {
+  const { topicId } = req.params;
+  // Extract the validation errors from a request.
+  const errors = validationResult(req);
+
+  // Access the text content from the form
+  const text = req.body.message;
+
+  // Decode the text content using he library
+  const decodedText = he.decode(text);
+
+  const topic = await Topic.findById(topicId);
+
+  const post = new Post({
+    author: req.body.author,
+    message: decodedText,
+    topic: topic,
+  });
+  console.log(post);
+  console.log(topic.posts);
+
+  topic.posts.push(post);
+  await topic.save();
+
+  // Data from form is valid. Save statue update.
+  post
+    .save()
+    .then(function (post) {
+      res.redirect("/");
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 });
 
 module.exports = router;

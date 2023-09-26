@@ -7,8 +7,8 @@ const postsSchema = new mongoose.Schema({
     ref: "User", // Reference to the user who made the Posts update
     required: true,
   },
-  topic: { type: String, ref: "Topic", required: true },
-  content: {
+  topic: { type: String, ref: "Topic" },
+  message: {
     type: String,
     required: true,
   },

@@ -1,0 +1,13 @@
+<div class="userbar">
+  <% if (isAuthenticated) { %>
+  <div class="ub-u">
+    <a href=""><%=user.username %></a>
+  </div>
+  <% } %>
+  <div class="ub-t">
+    <a href="/">Topic List</a>
+  </div>
+  <div class="ub-p">
+    <a id="post-btn" href="">Post New Message</a>
+  </div>
+</div>

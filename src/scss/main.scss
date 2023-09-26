@@ -7,6 +7,14 @@ a {
   text-decoration: none !important;
 }
 
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
 .board {
   max-width: 1220px;
   margin: 0 auto;
@@ -120,9 +128,21 @@ a {
     color: #797878;
     font-size: 14px;
   }
+  .post-t {
+    .post-topic {
+      color: #5c5c5c;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .post-forum {
+      color: #afaeae !important;
+      font-weight: 400 !important;
+    }
+  }
   .a1 {
     display: flex;
-    padding-top: 10px;
+    margin-top: 5px;
+    padding-top: 2px;
     .b1 {
       text-align: center;
       background-color: #27272c;
@@ -161,5 +181,45 @@ a {
         }
       }
     }
+  }
+  .post-btn {
+    background-color: #5eb334;
+    border: 1px solid #57b32a;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 1px 0;
+    box-shadow: #5eb334 0 0 0 1px, rgba(255, 255, 255, 0.15) 0 1px 0 inset,
+      rgba(0, 0, 0, 0.25) 0 1px 1px;
+    padding: 2px 8px;
+  }
+}
+
+.userbar {
+  display: flex;
+  margin-top: 20px;
+  div {
+    border-radius: 3px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  a {
+    padding: 2px 8px;
+  }
+  .ub-u {
+    border: 1px solid #c0c0c0;
+    color: #5c5c5c;
+  }
+  .ub-t {
+    border: 1px solid #c0c0c0;
+    color: #5c5c5c;
+  }
+  .ub-p {
+    background-color: #4e90f1;
+    border: 1px solid #4c8ef1;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 1px 0;
+    box-shadow: #4e90f1 0 0 0 1px, rgba(255, 255, 255, 0.15) 0 1px 0 inset,
+      rgba(0, 0, 0, 0.25) 0 1px 1px;
   }
 }

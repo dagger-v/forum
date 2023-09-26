@@ -12,7 +12,7 @@ const topicSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  posts: { type: String, ref: "Posts" },
+  posts: { type: Array, ref: "Posts" },
   postCount: { type: Number, default: 1, required: true },
   createdAt: {
     type: Date,
