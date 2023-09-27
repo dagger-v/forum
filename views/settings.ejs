@@ -20,27 +20,27 @@
   </head>
   <body>
     <%- include("navbar"); -%>
-    <div class="profile">
-      <div class="banner">
-        <img src="/images/banner/banner-dagger.png" alt="Banner Image" />
-        <div class="banner-user">
-          <img src="/images/dagger.png" alt="Avatar Image" class="avatar" />
-          <div class="banner-name">
-            <h3><%=user.username %></h3>
-            <h5>Jade Emperor</h5>
+    <div class="settings">
+      <div class="collection">
+        <div class="bar">
+          <div class="tabbed">
+            <a href="/users/settings">Basic Settings</a>
+            <a href="/users/settings/signature">Edit Signature</a>
+            <a href="/users/profile-picture">Profile Picture</a>
+            <a href="/users/banner-picture" class="br-none">Update Banner</a>
           </div>
         </div>
       </div>
-      <div class="mb">
-        <h4>Forum Information</h4>
-        <div class="mb-info">
-          <ul>
-            <li>Username:</li>
-            <li>Guild:</li>
-            <li>Registered:</li>
-            <li>Active Posts:</li>
-            <li>Signature:</li>
-          </ul>
+      <div class="settings-p">
+        <div class="intro">
+          <p class="intro-s">
+            Welcome to the Settings page! Here, you have the power to tailor
+            your experience to your preferences. Explore a wide range of
+            customization options to make our platform work just the way you
+            want it to. Whether it's adjusting notification settings,
+            fine-tuning your profile, or personalizing your preferences, this is
+            your space to make our platform truly yours.
+          </p>
         </div>
       </div>
     </div>
