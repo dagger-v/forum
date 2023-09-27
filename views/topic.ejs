@@ -41,41 +41,57 @@
             <span><%=topic.content %></span>
           </div>
           <div class="c1-s">
+            <span class="c1-sig"> <%=user.signature %> </span>
+          </div>
+        </div>
+      </div>
+      <% topic.posts.forEach((post) => { %>
+      <div class="a1">
+        <div class="b1">
+          <img src="/images/dagger.png" alt="icon" />
+          <p><%= post.author %></p>
+          <span><p class="b1-g">Jade Emperor</p></span>
+        </div>
+        <div class="c1">
+          <div class="c1-c">
+            <span><%=post.message %></span>
+          </div>
+          <div class="c1-s">
             <span class="c1-sig">Do I have to die to hear you miss me</span>
           </div>
         </div>
-        <% topic.posts.forEach((post) => { %>
-        <li><%= post.message %> - Created At: <%= post.createdAt %></li>
-        <% }); %>
       </div>
-      <% }); %>
-      <form action="" method="POST" id="post-form" class="hidden">
-        <div class="form-group">
-          <label for="message"></label>
-          <textarea
-            class="form-control"
-            id="message"
-            name="message"
-            rows="10"
-            cols="65"
-            placeholder="Write Your Message"
-          ></textarea>
-        </div>
-        <div>
-          <label for="author"></label>
-          <input
-            id="author"
-            type="text"
-            name="author"
-            value="<%= user.username %>"
-            hidden
-          />
-        </div>
-        <div>
-          <button type="submit" class="post-btn">Post New Message</button>
-        </div>
-      </form>
+      <% }); %> <% }); %>
+      <section id="qp">
+        <form action="" method="POST">
+          <div class="form-group">
+            <label for="message"></label>
+            <textarea
+              class="form-control"
+              id="message"
+              name="message"
+              rows="10"
+              cols="65"
+              placeholder="Write Your Message"
+            ></textarea>
+          </div>
+          <div>
+            <label for="author"></label>
+            <input
+              id="author"
+              type="text"
+              name="author"
+              value="<%= user.username %>"
+              hidden
+            />
+          </div>
+          <div>
+            <button type="submit" class="post-btn">Post New Message</button>
+          </div>
+        </form>
+      </section>
     </div>
+    <%- include("footer"); -%>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

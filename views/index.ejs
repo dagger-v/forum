@@ -22,10 +22,18 @@
     <%- include("navbar"); -%>
 
     <div class="board">
+      <h1>Yūgen Clan</h1>
       <div>
-        <a href="/board/post">
-          <button class="topic">New Topic</button>
-        </a>
+        <div class="userbar">
+          <% if (isAuthenticated) { %>
+          <div class="ub-u">
+            <a href=""><%=user.username %></a>
+          </div>
+          <div class="ub-p">
+            <a href="/board/post">New Topic</a>
+          </div>
+          <% } %>
+        </div>
       </div>
       <table>
         <thead>

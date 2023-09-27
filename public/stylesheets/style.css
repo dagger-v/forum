@@ -7,17 +7,10 @@ a {
   text-decoration: none !important;
 }
 
-.hidden {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
 .board {
   max-width: 1220px;
   margin: 0 auto;
+  margin-top: 1em;
 }
 .board .topic {
   background-color: #4e90f1;
@@ -41,7 +34,7 @@ a {
 .board table {
   border-collapse: collapse;
   width: 100%;
-  margin-top: 3em;
+  margin-top: 5px;
 }
 .board th {
   background-color: #191717;
@@ -78,11 +71,12 @@ a {
   align-items: center;
   background-color: #27272c;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .nav .title {
   color: #fff;
   margin: 0 50px;
+  padding: 5px 0;
 }
 .nav button {
   transition: opacity 0.3s ease;
@@ -211,6 +205,25 @@ a {
   color: #fff;
   text-shadow: rgba(0, 0, 0, 0.5) 0 1px 0;
   box-shadow: #4e90f1 0 0 0 1px, rgba(255, 255, 255, 0.15) 0 1px 0 inset, rgba(0, 0, 0, 0.25) 0 1px 1px;
+}
+
+.settings {
+  max-width: 1220px;
+  margin: 0 auto;
+  margin-top: 4em;
+}
+.settings form input {
+  width: 50%;
+}
+.settings .signature {
+  margin-top: 3em;
+}
+
+.footer .content-f {
+  background-color: #27272c;
+  height: 250px;
+  margin-top: 4em;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
