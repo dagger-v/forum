@@ -21,28 +21,17 @@
   <body>
     <%- include("navbar"); -%>
     <div class="settings">
-      <div class="name">
-        <h5><%= user.username %> - Settings</h5>
-      </div>
-      <div class="settings-g">
-        <span
-          >Welcome to the Settings page! Here, you have the power to tailor your
-          experience to your preferences. Explore a wide range of customization
-          options to make our platform work just the way you want it to. Whether
-          it's adjusting notification settings, fine-tuning your profile, or
-          personalizing your preferences, this is your space to make our
-          platform truly yours. Let's get started on making everything feel just
-          right for you!</span
-        >
-      </div>
+      <h4>My Signature</h4>
+      <%- include("collection"); -%>
       <div class="signature">
-        <span
-          >This is where you can update your signature, which is a brief line of
+        <p class="description-s">
+          This is where you can update your signature, which is a brief line of
           text displayed under each of your forum posts. The maximum character
           limit for your signature is 50 characters. So, go ahead and create a
           unique and memorable signature that represents you in the forum
           discussions.
-        </span>
+        </p>
+        <h5>Signature</h5>
         <form action="" method="POST">
           <div class="form-group">
             <input
@@ -64,7 +53,7 @@
             />
           </div>
           <div>
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="ub-p">Update Signature</button>
           </div>
         </form>
       </div>

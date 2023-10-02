@@ -22,9 +22,13 @@
     <%- include("navbar"); -%>
     <div class="profile">
       <div class="banner">
-        <img src="/images/banner/banner-dagger.png" alt="Banner Image" />
+        <img src="/images/banner-<%=user.banner %>.png" alt="Banner Image" />
         <div class="banner-user">
-          <img src="/images/dagger.png" alt="Avatar Image" class="avatar" />
+          <img
+            src="/images/avatar-<%=user.avatar %>.png"
+            alt="Avatar Image"
+            class="avatar"
+          />
           <div class="banner-name">
             <h3><%=user.username %></h3>
             <h5>Jade Emperor</h5>

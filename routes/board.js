@@ -15,6 +15,7 @@ const he = require("he");
 /* GET users listing. */
 router.get("/post", function (req, res, next) {
   const user = req.user;
+  console.log(user.signature);
   res.render("post", { title: "The Depths", user });
 });
 
@@ -40,6 +41,7 @@ router.post("/post", [
       title: req.body.title,
       content: decodedText,
       author: req.body.author,
+      signature: req.body.signature,
     });
 
     if (!errors.isEmpty()) {
@@ -52,6 +54,7 @@ router.post("/post", [
           author: author.username,
           title: title,
           content: content,
+          signature: signature,
           errors: errors.array(),
         });
       });
@@ -113,6 +116,7 @@ router.post("/:topicId", async function (req, res, next) {
     author: req.body.author,
     message: decodedText,
     topic: topic,
+    signature: req.body.signature,
   });
   console.log(post);
   console.log(topic.posts);
@@ -124,7 +128,7 @@ router.post("/:topicId", async function (req, res, next) {
   post
     .save()
     .then(function (post) {
-      res.redirect("/");
+      res.redirect(`/board/${topicId}`);
     })
     .catch(function (err) {
       console.log(err);

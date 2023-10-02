@@ -21,16 +21,8 @@
   <body>
     <%- include("navbar"); -%>
     <div class="settings">
-      <div class="collection">
-        <div class="bar">
-          <div class="tabbed">
-            <a href="/users/settings">Basic Settings</a>
-            <a href="/users/settings/signature">Edit Signature</a>
-            <a href="/users/profile-picture">Profile Picture</a>
-            <a href="/users/banner-picture" class="br-none">Update Banner</a>
-          </div>
-        </div>
-      </div>
+      <h4>Basic Settings</h4>
+      <%- include("collection"); -%>
       <div class="settings-p">
         <div class="intro">
           <p class="intro-s">

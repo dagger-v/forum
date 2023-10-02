@@ -32,7 +32,7 @@
       <%- include("userbar"); -%>
       <div class="a1">
         <div class="b1">
-          <img src="/images/dagger.png" alt="icon" />
+          <img src="/images/avatar-<%=user.avatar %>.png" alt="icon" />
           <p><%= topic.author %></p>
           <span><p class="b1-g">Jade Emperor</p></span>
         </div>
@@ -41,14 +41,14 @@
             <span><%=topic.content %></span>
           </div>
           <div class="c1-s">
-            <span class="c1-sig"> <%=user.signature %> </span>
+            <span class="c1-sig"><%=user.signature %></span>
           </div>
         </div>
       </div>
       <% topic.posts.forEach((post) => { %>
       <div class="a1">
         <div class="b1">
-          <img src="/images/dagger.png" alt="icon" />
+          <img src="/images/avatar-<%=user.avatar %>.png" alt="icon" />
           <p><%= post.author %></p>
           <span><p class="b1-g">Jade Emperor</p></span>
         </div>
@@ -57,7 +57,7 @@
             <span><%=post.message %></span>
           </div>
           <div class="c1-s">
-            <span class="c1-sig">Do I have to die to hear you miss me</span>
+            <span class="c1-sig"><%=user.signature %></span>
           </div>
         </div>
       </div>
@@ -82,6 +82,16 @@
               type="text"
               name="author"
               value="<%= user.username %>"
+              hidden
+            />
+          </div>
+          <div>
+            <label for="signature"></label>
+            <input
+              id="signature"
+              type="text"
+              name="signature"
+              value="<%= user.signature %>"
               hidden
             />
           </div>

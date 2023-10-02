@@ -14,7 +14,11 @@ const userSchema = new mongoose.Schema({
   password: String,
   signature: {
     type: String,
+    default: "",
   },
+  guild: { type: String, default: "(none)" },
+  avatar: { type: String, default: "default" },
+  banner: { type: String, default: "default" },
   createdAt: { type: Date, default: Date.now },
 });
 

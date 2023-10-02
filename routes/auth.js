@@ -15,6 +15,8 @@ passport.serializeUser(function (user, cb) {
       id: user.id,
       username: user.username,
       signature: user.signature,
+      avatar: user.avatar,
+      banner: user.banner,
       createdAt: user.createdAt,
     });
   });
