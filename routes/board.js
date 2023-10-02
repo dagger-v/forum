@@ -27,6 +27,7 @@ router.post("/post", [
     .escape(),
   // Process request after validation and sanitization.
   (req, res, next) => {
+    const user = req.user;
     // Extract the validation errors from a request.
     const errors = validationResult(req);
 
@@ -42,6 +43,7 @@ router.post("/post", [
       content: decodedText,
       author: req.body.author,
       signature: req.body.signature,
+      guild: user.guild,
     });
 
     if (!errors.isEmpty()) {
@@ -55,6 +57,7 @@ router.post("/post", [
           title: title,
           content: content,
           signature: signature,
+          guild: guild,
           errors: errors.array(),
         });
       });
@@ -117,6 +120,7 @@ router.post("/:topicId", async function (req, res, next) {
     message: decodedText,
     topic: topic,
     signature: req.body.signature,
+    guild: req.body.guild,
   });
   console.log(post);
   console.log(topic.posts);

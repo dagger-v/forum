@@ -46,7 +46,6 @@ router.get("/settings/signature", function (req, res, next) {
 
 router.post("/settings/signature", function (req, res, next) {
   const newSignature = req.body.signature;
-
   const userId = req.user.id;
 
   // Update the user's signature in the database
@@ -104,6 +103,29 @@ router.post("/settings/banner", upload.single("banner"), async (req, res) => {
       error: "An error occurred while uploading the profile picture",
     });
   }
+});
+
+router.get("/settings/guild", function (req, res, next) {
+  res.render("guild", { title: "Yūgen Clan" });
+});
+
+router.post("/settings/guild", function (req, res, next) {
+  const newguild = req.body.guild;
+  const userId = req.user.id;
+
+  // Update the user's guild in the database
+  User.findByIdAndUpdate(userId, { guild: newguild }, { new: true })
+    .then((user) => {
+      if (!user) {
+        return res.status(404).send("User not found");
+      }
+
+      res.redirect("/users/settings/guild");
+    })
+    .catch((error) => {
+      console.error("Error updating guild:", error);
+      res.status(500).send("Internal Server Error");
+    });
 });
 
 /* PROFILE LISTINGS */

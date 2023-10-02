@@ -32,32 +32,32 @@
       <%- include("userbar"); -%>
       <div class="a1">
         <div class="b1">
-          <img src="/images/avatar-<%=user.avatar %>.png" alt="icon" />
+          <img src="/images/avatar-<%=topic.author %>.png" alt="icon" />
           <p><%= topic.author %></p>
-          <span><p class="b1-g">Jade Emperor</p></span>
+          <span><p class="b1-g"><%=topic.guild %></p></span>
         </div>
         <div class="c1">
           <div class="c1-c">
             <span><%=topic.content %></span>
           </div>
           <div class="c1-s">
-            <span class="c1-sig"><%=user.signature %></span>
+            <span class="c1-sig"><%=topic.signature %></span>
           </div>
         </div>
       </div>
       <% topic.posts.forEach((post) => { %>
       <div class="a1">
         <div class="b1">
-          <img src="/images/avatar-<%=user.avatar %>.png" alt="icon" />
+          <img src="/images/avatar-<%=post.author %>.png" alt="icon" />
           <p><%= post.author %></p>
-          <span><p class="b1-g">Jade Emperor</p></span>
+          <span><p class="b1-g"><%=post.guild %></p></span>
         </div>
         <div class="c1">
           <div class="c1-c">
             <span><%=post.message %></span>
           </div>
           <div class="c1-s">
-            <span class="c1-sig"><%=user.signature %></span>
+            <span class="c1-sig"><%=post.signature %></span>
           </div>
         </div>
       </div>
@@ -92,6 +92,16 @@
               type="text"
               name="signature"
               value="<%= user.signature %>"
+              hidden
+            />
+          </div>
+          <div>
+            <label for="guild"></label>
+            <input
+              id="guild"
+              type="text"
+              name="guild"
+              value="<%= user.guild %>"
               hidden
             />
           </div>

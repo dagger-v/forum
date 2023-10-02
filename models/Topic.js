@@ -14,6 +14,12 @@ const topicSchema = new mongoose.Schema({
   },
   posts: { type: Array, ref: "Posts" },
   postCount: { type: Number, default: 1, required: true },
+  signature: {
+    type: String,
+  },
+  guild: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

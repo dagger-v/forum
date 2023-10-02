@@ -12,6 +12,12 @@ const postsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  signature: {
+    type: String,
+  },
+  guild: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

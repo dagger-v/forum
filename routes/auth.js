@@ -17,6 +17,7 @@ passport.serializeUser(function (user, cb) {
       signature: user.signature,
       avatar: user.avatar,
       banner: user.banner,
+      guild: user.guild,
       createdAt: user.createdAt,
     });
   });
@@ -76,6 +77,8 @@ router.post("/login", (req, res) => {
   const user = new User({
     username: req.body.username,
     password: req.body.password,
+    signature: req.body.signature,
+    guild: req.body.guild,
   });
 
   // Using passport will check credentials
