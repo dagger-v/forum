@@ -32,7 +32,7 @@
       <%- include("userbar"); -%>
       <div class="a1">
         <div class="b1">
-          <img src="/images/avatar-<%=topic.author %>.png" alt="icon" />
+          <img src="/images/avatar-<%=topic.avatar %>.png" alt="icon" />
           <p><%= topic.author %></p>
           <span><p class="b1-g"><%=topic.guild %></p></span>
         </div>
@@ -102,6 +102,16 @@
               type="text"
               name="guild"
               value="<%= user.guild %>"
+              hidden
+            />
+          </div>
+          <div>
+            <label for="avatar"></label>
+            <input
+              id="avatar"
+              type="text"
+              name="avatar"
+              value="<%= user.avatar %>"
               hidden
             />
           </div>

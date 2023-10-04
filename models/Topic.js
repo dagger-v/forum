@@ -20,6 +20,9 @@ const topicSchema = new mongoose.Schema({
   guild: {
     type: String,
   },
+  avatar: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

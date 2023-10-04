@@ -12,6 +12,7 @@ const postsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  postNumber: { type: Number, default: 1, required: true },
   signature: {
     type: String,
   },

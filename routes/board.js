@@ -3,6 +3,7 @@ var router = express.Router();
 
 const { ObjectId } = require("mongodb");
 
+const User = require("../models/User");
 const Topic = require("../models/Topic");
 const Post = require("../models/Posts");
 
@@ -26,8 +27,7 @@ router.post("/post", [
     .isLength({ min: 1 })
     .escape(),
   // Process request after validation and sanitization.
-  (req, res, next) => {
-    const user = req.user;
+  async (req, res, next) => {
     // Extract the validation errors from a request.
     const errors = validationResult(req);
 
@@ -43,8 +43,12 @@ router.post("/post", [
       content: decodedText,
       author: req.body.author,
       signature: req.body.signature,
-      guild: user.guild,
+      guild: req.body.guild,
+      avatar: req.body.avatar,
     });
+    const user = await User.findOne({ username: topic.author });
+    user.activePosts += 1;
+    await user.save();
 
     if (!errors.isEmpty()) {
       // Get all authors and genres for form.
@@ -121,7 +125,11 @@ router.post("/:topicId", async function (req, res, next) {
     topic: topic,
     signature: req.body.signature,
     guild: req.body.guild,
+    avatar: req.body.avatar,
   });
+  const user = await User.findOne({ username: post.author });
+  user.activePosts += 1;
+  await user.save();
   console.log(post);
   console.log(topic.posts);
 

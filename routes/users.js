@@ -129,8 +129,20 @@ router.post("/settings/guild", function (req, res, next) {
 });
 
 /* PROFILE LISTINGS */
-router.get("/:user", function (req, res, next) {
-  res.render("profile", { title: "Yūgen Clan" });
+router.get("/:username", async function (req, res, next) {
+  const username = req.params.username;
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  };
+
+  const getUser = await User.findOne({ username: username });
+
+  res.render("profile", { title: "Yūgen Clan", getUser, options });
 });
 
 module.exports = router;

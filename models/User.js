@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
   guild: { type: String, default: "(none)" },
   avatar: { type: String, default: "default" },
   banner: { type: String, default: "default" },
+  activePosts: { type: Number, default: 0 },
   createdAt: { type: Date, default: Date.now },
 });
 

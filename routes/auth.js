@@ -79,6 +79,7 @@ router.post("/login", (req, res) => {
     password: req.body.password,
     signature: req.body.signature,
     guild: req.body.guild,
+    avatar: req.body.avatar,
   });
 
   // Using passport will check credentials

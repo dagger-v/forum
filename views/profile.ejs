@@ -22,16 +22,16 @@
     <%- include("navbar"); -%>
     <div class="profile">
       <div class="banner">
-        <img src="/images/banner-<%=user.banner %>.png" alt="Banner Image" />
+        <img src="/images/banner-<%=getUser.banner %>.png" alt="Banner Image" />
         <div class="banner-user">
           <img
-            src="/images/avatar-<%=user.avatar %>.png"
+            src="/images/avatar-<%=getUser.avatar %>.png"
             alt="Avatar Image"
             class="avatar"
           />
           <div class="banner-name">
-            <h3><%=user.username %></h3>
-            <h5>Jade Emperor</h5>
+            <h3><%=getUser.username %></h3>
+            <h5><%=getUser.guild %></h5>
           </div>
         </div>
       </div>
@@ -39,11 +39,14 @@
         <h4>Forum Information</h4>
         <div class="mb-info">
           <ul>
-            <li>Username:</li>
-            <li>Guild:</li>
-            <li>Registered:</li>
-            <li>Active Posts:</li>
-            <li>Signature:</li>
+            <li>Username: <%=getUser.username %></li>
+            <li>Guild: <%=getUser.guild %></li>
+            <li>
+              Registered: <%=getUser.createdAt.toLocaleDateString("en-US",
+              options) %>
+            </li>
+            <li>Active Posts: <%=getUser.activePosts %></li>
+            <li>Signature: <em><%=getUser.signature %></em></li>
           </ul>
         </div>
       </div>

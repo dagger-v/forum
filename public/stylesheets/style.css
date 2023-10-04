@@ -61,6 +61,13 @@ a {
   border-left: 1px solid #f8f8f4;
   border-right: 1px solid #f8f8f4;
 }
+.board .pagination {
+  display: flex;
+  justify-content: flex-end;
+}
+.board .pagination a {
+  margin: 0 10px;
+}
 
 .topbar {
   align-items: center;

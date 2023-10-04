@@ -34,6 +34,15 @@
           </div>
           <% } %>
         </div>
+        <div class="pagination">
+          <% if (currentPage > 1) { %>
+          <a href="/?page=<%= currentPage - 1 %>&limit=<%= limit %>"
+            ><< Previous</a
+          >
+          <% } %> <% if (currentPage < totalPages) { %>
+          <a href="/?page=<%= currentPage + 1 %>&limit=<%= limit %>">Next ></a>
+          <% } %>
+        </div>
       </div>
       <table>
         <thead>
