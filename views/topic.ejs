@@ -21,7 +21,7 @@
   <body>
     <%- include("navbar"); -%>
     <div class="post">
-      <% list_posts.forEach(topic => { %>
+      <% if (isAuthenticated) { %> <% list_posts.forEach(topic => { %>
       <div class="post-t">
         <span class="post-topic"><%= topic.title %></span>
       </div>
@@ -120,6 +120,9 @@
           </div>
         </form>
       </section>
+      <% } else { %>
+      <h1>Please Log In To Continue!</h1>
+      <% } %>
     </div>
     <%- include("footer"); -%>
     <script

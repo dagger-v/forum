@@ -127,6 +127,10 @@ router.post("/:topicId", async function (req, res, next) {
     guild: req.body.guild,
     avatar: req.body.avatar,
   });
+
+  topic.postCount += 1;
+  await topic.save();
+
   const user = await User.findOne({ username: post.author });
   user.activePosts += 1;
   await user.save();

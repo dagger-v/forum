@@ -38,16 +38,53 @@
       <div class="mb">
         <h4>Forum Information</h4>
         <div class="mb-info">
-          <ul>
-            <li>Username: <%=getUser.username %></li>
-            <li>Guild: <%=getUser.guild %></li>
-            <li>
-              Registered: <%=getUser.createdAt.toLocaleDateString("en-US",
-              options) %>
-            </li>
-            <li>Active Posts: <%=getUser.activePosts %></li>
-            <li>Signature: <em><%=getUser.signature %></em></li>
-          </ul>
+          <table>
+            <thead>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Username:
+                </td>
+                <td>
+                  <%=getUser.username %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Guild:
+                </td>
+                <td>
+                  [ <%=getUser.guild %> ]
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Registered:
+                </td>
+                <td>
+                  <%=getUser.createdAt.toLocaleDateString("en-US", options)
+                    %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Active Posts:
+                </td>
+                <td>
+                  <%=getUser.activePosts %>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Signature:
+                </td>
+                <td>
+                  <span><em><%=getUser.signature %></em>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

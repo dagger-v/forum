@@ -2,6 +2,8 @@
 <html>
   <head>
     <title><%= title %></title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+
     <link rel="stylesheet" href="/stylesheets/style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -85,7 +87,7 @@
               </span>
             </td>
             <td><span> <%=topic.author %> </span></td>
-            <td><span>93</span></td>
+            <td><span> <%=topic.postCount %> </span></td>
             <td>
               <span>
                 <%= topic.createdAt.toLocaleDateString("en-US",
